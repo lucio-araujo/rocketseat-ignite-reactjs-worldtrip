@@ -1,7 +1,9 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import {
+  Box,
   Flex,
+  GridItem,
+  Grid,
   Heading,
   Image,
   Text,
@@ -9,7 +11,13 @@ import {
 } from "@chakra-ui/react";
 
 export default function Home() {
-  const isWideVersion = useBreakpointValue({ base: false, lg: true });
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    sm: false,
+    md: true,
+    lg: true,
+  });
+
   return (
     <>
       <Head>
@@ -18,14 +26,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex h="100vh" direction="column">
+      <Flex h="100vh" w="100vw" direction="column">
         <Flex
           bg="white"
           align="center"
           justify="center"
           h={{ base: "50px", lg: "100px" }}
         >
-          <Image src="/logo.svg" h={{ base: "20px", lg: "46px" }} alt="WorldTrip Logo"/>
+          <Image
+            src="/logo.svg"
+            h={{ base: "20px", lg: "46px" }}
+            alt="WorldTrip Logo"
+          />
         </Flex>
         <Flex
           h={{ base: "163px", lg: "335px" }}
@@ -33,6 +45,7 @@ export default function Home() {
           bgSize="cover"
           bgPosition={{ base: "100% 20%", lg: "100% 30%" }}
           p={{ base: "1.75rem 1rem 1.75rem", lg: "5rem 8.75rem 0" }}
+          color="gray.50"
         >
           <Flex direction="column">
             <Heading
@@ -47,12 +60,125 @@ export default function Home() {
               fontSize={{ base: "sm", lg: "xl" }}
               lineHeight={{ base: "1.3125rem", lg: "1.875rem" }}
               mt={{ base: "0.5rem", lg: "1.25rem" }}
+              color="gray.100"
+              maxW={{ base: "333px", lg: "524px" }}
             >
-              Chegou a hora de tirar do papel a viagem que você <br />
-              sempre sonhou.
+              Chegou a hora de tirar do papel a viagem que você sempre sonhou.
             </Text>
           </Flex>
-          {isWideVersion && <Image src="/airplane.svg" h="293px" ml="auto" alt="Airplane"/>}
+          {isWideVersion && (
+            <Image
+              src="/airplane.svg"
+              h={{ md: "160px", lg: "293px" }}
+              ml="auto"
+              alt="Airplane"
+            />
+          )}
+        </Flex>
+        <Flex
+          w="100%"
+          justify="center"
+          mx="auto"
+          maxW="1160px"
+          minW="275px"
+          flexWrap="wrap"
+          css={{ columnGap: "2rem", rowGap: "1.6875rem" }}
+          px="50px"
+          mt={{ base: "2.25rem", lg: "7.125rem" }}
+        >
+          <Flex
+            direction={isWideVersion ? "column" : "row"}
+            alignItems="center"
+            justify="center"
+            flex="1"
+            minWidth="158px"
+          >
+            {isWideVersion && (
+              <Image src="/cocktail.svg" h="85px" alt="Cocktail" />
+            )}
+            {!isWideVersion && (
+              <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse" />
+            )}
+            <Heading
+              fontSize={{ base: "1.125rem", lg: "1.5rem" }}
+              mt={isWideVersion ? "1.5rem" : 0}
+              fontWeight="semibold"
+            >
+              vida noturna
+            </Heading>
+          </Flex>
+          <Flex
+            direction={isWideVersion ? "column" : "row"}
+            align="center"
+            justify="center"
+            flex="1"
+            minWidth="85px"
+          >
+            {isWideVersion && <Image src="/surf.svg" h="85px" alt="Surf" />}
+            {!isWideVersion && (
+              <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse" />
+            )}
+            <Heading
+              fontSize={{ base: "1.125rem", lg: "1.5rem" }}
+              mt={isWideVersion ? "1.5rem" : 0}
+              fontWeight="semibold"
+            >
+              praia
+            </Heading>
+          </Flex>
+          <Flex
+            direction={isWideVersion ? "column" : "row"}
+            align="center"
+            justify="center"
+            flex="1"
+            minWidth="113px"
+          >
+            {isWideVersion && <Image src="/tower.svg" h="85px" alt="Tower" />}
+            {!isWideVersion && (
+              <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse" />
+            )}
+            <Heading
+              fontSize={{ base: "1.125rem", lg: "1.5rem" }}
+              mt={isWideVersion ? "1.5rem" : 0}
+              fontWeight="semibold"
+            >
+              moderno
+            </Heading>
+          </Flex>
+          <Flex
+            direction={isWideVersion ? "column" : "row"}
+            align="center"
+            justify="center"
+            flex="1"
+            minWidth="100px"
+          >
+            {isWideVersion && <Image src="/museum.svg" h="85px" alt="Museum"/>}
+            {!isWideVersion && <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse"/>}
+            <Heading
+              fontSize={{ base: "1.125rem", lg: "1.5rem" }}
+              mt={isWideVersion ? "1.5rem" : 0}
+              fontWeight="semibold"
+            >
+              clássico
+            </Heading>
+          </Flex>
+          <Flex
+            direction={isWideVersion ? "column" : "row"}
+            align="center"
+            justify="center"
+            flex="1"
+            minWidth="101px"
+          >
+            {isWideVersion && <Image src="/earth.svg" h="85px" alt="Earth"/>}
+            {!isWideVersion && <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse"/>}
+            <Heading
+              fontSize={{ base: "1.125rem", lg: "1.5rem" }}
+              mt={isWideVersion ? "1.5rem" : 0}
+              fontWeight="semibold"
+            >
+              e mais...
+            </Heading>
+          </Flex>
         </Flex>
       </Flex>
     </>
