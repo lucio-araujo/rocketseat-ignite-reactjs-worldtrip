@@ -1,14 +1,13 @@
-import Head from "next/head";
 import {
-  Box,
   Flex,
-  GridItem,
-  Grid,
   Heading,
   Image,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import Head from "next/head";
+
+import { Carousel } from "../components/Carousel";
 
 export default function Home() {
   const isWideVersion = useBreakpointValue({
@@ -152,8 +151,10 @@ export default function Home() {
             flex="1"
             minWidth="100px"
           >
-            {isWideVersion && <Image src="/museum.svg" h="85px" alt="Museum"/>}
-            {!isWideVersion && <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse"/>}
+            {isWideVersion && <Image src="/museum.svg" h="85px" alt="Museum" />}
+            {!isWideVersion && (
+              <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse" />
+            )}
             <Heading
               fontSize={{ base: "1.125rem", lg: "1.5rem" }}
               mt={isWideVersion ? "1.5rem" : 0}
@@ -169,8 +170,10 @@ export default function Home() {
             flex="1"
             minWidth="101px"
           >
-            {isWideVersion && <Image src="/earth.svg" h="85px" alt="Earth"/>}
-            {!isWideVersion && <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse"/>}
+            {isWideVersion && <Image src="/earth.svg" h="85px" alt="Earth" />}
+            {!isWideVersion && (
+              <Image src="/ellipse.svg" h="8px" mr="0.5rem" alt="Ellipse" />
+            )}
             <Heading
               fontSize={{ base: "1.125rem", lg: "1.5rem" }}
               mt={isWideVersion ? "1.5rem" : 0}
@@ -180,6 +183,7 @@ export default function Home() {
             </Heading>
           </Flex>
         </Flex>
+        <Carousel />
       </Flex>
     </>
   );
