@@ -17,18 +17,18 @@ export function Carousel() {
       maxW="1240px"
       width="100%"
       h={{ base: "250px", lg: "450px" }}
-      margin={{ base: "1.25rem auto 0", lg: "3.25rem auto 0" }}
+      margin={{ base: "0 auto 0", lg: "3.25rem auto 0" }}
     >
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={3}
+        spaceBetween={35}
+        slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
       >
         <SwiperSlide>
           <Flex
